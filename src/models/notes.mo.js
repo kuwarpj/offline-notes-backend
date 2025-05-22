@@ -8,10 +8,11 @@ const noteSchema = new mongoose.Schema(
     },
     content: {
       type: String,
-      require: true,
+      required: true,
     },
     synced: {
       type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }
