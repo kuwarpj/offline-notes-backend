@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
+import notesRouter from "./routes/notes.rt.js"
 const app = express();
 
 app.use(
@@ -15,12 +17,15 @@ app.use(
     limit: "16kb",
   })
 );
+
+
+
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
 
-
+app.use("/api/v1/note", notesRouter);
 
 
 app.use((err, req, res, next) => {
